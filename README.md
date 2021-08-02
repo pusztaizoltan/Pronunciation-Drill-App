@@ -2,7 +2,7 @@
 Vizsga Project
 
 Pronunciation-Drill-App angol (v akármilyen) nyelvü szavak kielytésének
-gyakorlására generál leckéket, azonos kezdetű (prefik) vagy végű (suffix) (alphabetic and phonetic)
+gyakorlására generál leckéket, azonos kezdetű (prefix) vagy végű (suffix) (alphabetic and phonetic)
 szavak csoportokba gyűjtésével, formázásával, online megjelenítésével.
 
 Megjelenítés után bármilyen online szövegfelolvasó program használata mellett
