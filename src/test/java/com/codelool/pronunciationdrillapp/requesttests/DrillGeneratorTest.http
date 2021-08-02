@@ -1,0 +1,4 @@
+GET http://localhost:8080/generatedata/prefix/drill
+
+###
+GET http://localhost:8080/generatedata/suffix/drill

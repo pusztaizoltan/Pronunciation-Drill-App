@@ -1,0 +1,49 @@
+###
+GET http://localhost:8080/dataio/prefix/findall
+Accept: application/json
+Content-Type: application/json
+
+###
+GET http://localhost:8080/dataio/prefix/findone/1
+Accept: application/json
+Content-Type: application/json
+
+###
+POST http://localhost:8080/dataio/prefix/addone
+Accept: application/json
+Content-Type: application/json
+
+{
+  "alphabetic": "ADD_TEST",
+  "phonetic": "---"
+}
+
+###
+DELETE http://localhost:8080/dataio/prefix/deleteone/1
+Accept: application/json
+Content-Type: application/json
+
+###
+#----------word test-----------------
+GET http://localhost:8080/dataio/prefix/1/words
+
+###
+PUT http://localhost:8080/dataio/prefix/1/addword
+Accept: application/json
+Content-Type: application/json
+
+{
+  "alphabetic": "UPDATE_TEST",
+  "phonetic": "---"
+}
+
+###
+DELETE http://localhost:8080/dataio/prefix/1/delword
+Accept: application/json
+Content-Type: application/json
+
+{
+  "alphabetic": "UPDATE_TEST",
+  "phonetic": "---"
+}
+

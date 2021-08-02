@@ -1,0 +1,9 @@
+GET http://localhost:8080/generatedata/prefix
+Accept: application/json
+Content-Type: application/json
+###
+
+GET http://localhost:8080/generatedata/suffix
+Accept: application/json
+Content-Type: application/json
+###
