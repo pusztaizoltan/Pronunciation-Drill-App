@@ -1,7 +1,6 @@
 package com.codelool.pronunciationdrillapp.integration;
 
 import com.codelool.pronunciationdrillapp.model.dto.WordDto;
-import com.codelool.pronunciationdrillapp.model.entity.Word;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -21,11 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ActiveProfiles("test")
 class WordIntegrationTest {
 	WordDto testWord1 = new WordDto("abacus", "ˈæbəkəs");
-//	insert into word (alphabetic, phonetic) values ('abacus', 'ˈæbəkəs');
-//	insert into word (alphabetic, phonetic) values ('abbreviated', 'əˈbriviˌeɪtəd');
-//	insert into word (alphabetic, phonetic) values ('abbreviation', 'əˌbriviˈeɪʃən');
-//	insert into word (alphabetic, phonetic) values ('ability', 'əˈbɪləti');
-//	insert into word (alphabetic, phonetic) values ('able', 'ˈeɪbəl');
+	WordDto testWord2 = new WordDto("abbreviated", "əˈbriviˌeɪtəd");
+	WordDto testWord3 = new WordDto("ability", "əˈbɪləti");
+	WordDto testWord4 = new WordDto("background", "ˈbækˌgraʊnd");
+	List<WordDto> testList = List.of(testWord1, testWord2, testWord3);
+
 
 	@LocalServerPort
 	private int port;
@@ -37,31 +36,54 @@ class WordIntegrationTest {
 
 	@BeforeEach
 	public void setUp() {
-		this.baseUrl = "http://localhost:" + port + "/dataio/word/findall";
+		this.baseUrl = "http://localhost:" + port + "/dataio/word";
 	}
 
 	@Test
-	public void getword_emptyDB_returnsEmpty() {
-		System.out.println("-------###########-----");
-		List<WordDto> wordList = List.of(testRestTemplate
-			.getForObject(baseUrl, WordDto[].class));
-		assertEquals(0, wordList.size());
+	public void findAllInEmptyDB_returnsEmpty() {
+		List<WordDto> wordList = List.of(testRestTemplate.getForObject(baseUrl + "/findall", WordDto[].class));
+		assertThat(wordList.size()).isEqualTo(0);
 	}
 
-//		@Test
-//	public void addWordToEmptyDB_returnWord() {
-////		Word testSong = new Song(null, "The Nine");
-//		System.out.println("-------###########-----");
-//		System.out.println(testWord1);
-//		WordDto result = testRestTemplate.postForObject(baseUrl, testWord1, WordDto.class);
-//		testRestTemplate.
-//		assertEquals(testWord1.getAlphabetic(), result.getAlphabetic());
-//		assertEquals(testWord1.getPhonetic(), result.getPhonetic());
-//	}
+	@Test
+	public void addWordToEmptyDB_returnOneWord() {
+		testRestTemplate.postForObject(baseUrl + "/addone", testWord1, WordDto.class);
+		List<WordDto> result = List.of(testRestTemplate.getForObject(baseUrl + "/findall", WordDto[].class));
+		assertThat(result.size()).isEqualTo(1);
+	}
 
+	@Test
+	public void addWordToEmptyDB_returnWordById() {
+		testRestTemplate.postForObject(baseUrl + "/addone", testWord1, WordDto.class);
+		WordDto result = testRestTemplate.getForObject(baseUrl + "/findone/1", WordDto.class);
+		assertThat(result.getAlphabetic()).isEqualTo(testWord1.getAlphabetic());
+		assertThat(result.getPhonetic()).isEqualTo(testWord1.getPhonetic());
+	}
 
-//	@Autowired
-//	JdbcTemplate jdbcTemplate;
+	@Test
+	public void deleteWordFromDB_returnRest() {
+		fillDBFromList(testList);
+		testRestTemplate.delete(baseUrl + "/deleteone/1");
+		List<WordDto> result = List.of(testRestTemplate.getForObject(baseUrl + "/findall", WordDto[].class));
+		assertThat(result.size()).isEqualTo(2);
+		result.forEach(resultDto ->
+			assertThat(resultDto.getAlphabetic()).isNotEqualTo(testWord1.getAlphabetic())
+		);
+	}
 
+	@Test
+	public void updateWordInDB_returnUpdated() {
+		fillDBFromList(testList);
+		testRestTemplate.put(baseUrl + "/updateone/1", testWord4, WordDto.class);
+		WordDto result = testRestTemplate.getForObject(baseUrl + "/findone/1", WordDto.class);
+		assertThat(result.getAlphabetic()).isEqualTo(testWord4.getAlphabetic());
+		assertThat(result.getPhonetic()).isEqualTo(testWord4.getPhonetic());
+	}
+
+	public void fillDBFromList(List<WordDto> testList) {
+		testList.forEach(wordDto ->
+			testRestTemplate.postForObject(baseUrl + "/addone", wordDto, WordDto.class)
+		);
+	}
 
 }
