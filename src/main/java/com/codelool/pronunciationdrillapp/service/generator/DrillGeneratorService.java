@@ -29,7 +29,7 @@ public class DrillGeneratorService {
 			.map(prefix -> generateTypeDrill(prefix.getWords()))
 			.collect(Collectors.toList());
 		Collections.shuffle(drills);
-		return drills.stream().collect(Collectors.joining("\n----------------------------------------------------\n"));
+		return drills.stream().collect(Collectors.joining("<br>\n----------------------------------------------------<br>\n"));
 	}
 
 	public String generateSuffixDrill(int minTypeContent) {
@@ -40,7 +40,7 @@ public class DrillGeneratorService {
 			.map(suffix -> generateTypeDrill(suffix.getWords()))
 			.collect(Collectors.toList());
 		Collections.shuffle(drills);
-		return drills.stream().collect(Collectors.joining("\n----------------------------------------------------\n"));
+		return drills.stream().collect(Collectors.joining("<br>\n----------------------------------------------------<br>\n"));
 	}
 
 	public String generateTypeDrill(List<Word> words) {
@@ -60,7 +60,7 @@ public class DrillGeneratorService {
 		if (line.length() > 1) {
 			lines.add(line.toString().replaceAll(" $", ","));
 		}
-		String typeDrill = lines.stream().collect(Collectors.joining("\n")).replaceAll(",$", ".");
+		String typeDrill = lines.stream().collect(Collectors.joining("<br>\n")).replaceAll(",$", ".");
 		return typeDrill.substring(0, 1).toUpperCase() + typeDrill.substring(1).toLowerCase() + "\n";
 	}
 }
