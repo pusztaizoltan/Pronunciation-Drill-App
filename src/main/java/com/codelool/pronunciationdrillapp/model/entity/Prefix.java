@@ -29,7 +29,7 @@ public class Prefix extends Morpheme {
 	@Column(unique = true)
 	private String alphabetic;
 	private String phonetic;
-	@Size(min=2)
+//	@Size(min=2)
 	@ManyToMany(cascade = CascadeType.MERGE)
 	private List<Word> words;
 
