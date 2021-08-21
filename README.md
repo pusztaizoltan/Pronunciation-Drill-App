@@ -16,6 +16,8 @@ A prefixek és suffixek generálását és szavakhoz rendelését a program elv�
 
 Prefixek és suffixek hozzáadása törlése szavakhoz rendelése egyenként manuálisan is elvégezhető.
 
+végpontok test httpreqvest ben megtalálhatóak
+
 
 
 
