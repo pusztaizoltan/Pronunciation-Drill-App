@@ -1,6 +1,7 @@
 package com.codelool.pronunciationdrillapp.model.entity;
 
 import com.codelool.pronunciationdrillapp.model.dto.WordDto;
+import com.codelool.pronunciationdrillapp.model.validator.NonNumeric;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

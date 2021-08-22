@@ -13,6 +13,6 @@ public class NonNumericValidator implements ConstraintValidator<NonNumeric, Stri
 
 	@Override
 	public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-		return s.matches("^[^0-9 ]*$");
+		return !s.matches(".*\\d+.*");
 	}
 }

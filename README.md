@@ -65,3 +65,5 @@ Prefixek és suffixek hozzáadása törlése szavakhoz rendelése egyenként man
         src/test/java/com/codelool/pronunciationdrillapp/requesttests/WordControllerTest.http
   végpontokon kezelhető.
 
+- Docker build és run a start.sh -val indítható. 
+

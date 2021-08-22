@@ -13,9 +13,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class WordDto {
 
-	@NonNumeric
+	@NonNumeric(message = "Please provide a author")
 	private String alphabetic;
-	@NonNumeric
+	@NonNumeric(message = "Please provide a author")
 	private String phonetic;
 
 	public Word toEntity() {
