@@ -24,9 +24,4 @@ public class SuffixDto {
 		return new Suffix(null, this.alphabetic, this.phonetic, List.of());
 	}
 
-	public Suffix toEntity(Suffix originalSuffix) {
-		if (this.alphabetic != null) originalSuffix.setAlphabetic(this.alphabetic);
-		if (this.phonetic != null) originalSuffix.setPhonetic(this.phonetic);
-		return originalSuffix;
-	}
 }

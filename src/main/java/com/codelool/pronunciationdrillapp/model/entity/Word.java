@@ -39,11 +39,4 @@ public class Word {
 		return Objects.equals(this.alphabetic, word.alphabetic) && Objects.equals(this.phonetic, word.phonetic);
 	}
 
-	@Override
-	public String toString() {
-		return "Word{" +
-			"alphabetic='" + alphabetic + '\'' +
-			", phonetic='" + phonetic + '\'' +
-			'}';
-	}
 }

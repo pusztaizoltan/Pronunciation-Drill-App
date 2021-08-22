@@ -24,9 +24,4 @@ public class PrefixDto {
 		return new Prefix(null, this.alphabetic, this.phonetic, List.of());
 	}
 
-	public Prefix toEntity(Prefix originalPrefix) {
-		if (this.alphabetic != null) originalPrefix.setAlphabetic(this.alphabetic);
-		if (this.phonetic != null) originalPrefix.setPhonetic(this.phonetic);
-		return originalPrefix;
-	}
 }

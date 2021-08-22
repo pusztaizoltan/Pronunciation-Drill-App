@@ -46,15 +46,6 @@ public class Prefix extends Morpheme {
 		words.removeIf(item -> item.equals(word));
 	}
 
-	@Override
-	public String toString() {
-		return "Prefix{" +
-			"alphabetic='" + alphabetic + '\'' +
-			", phonetic='" + phonetic + '\'' +
-			", wordsCount=" + words.size() + '\'' +
-			"}\n";
-	}
-
 	public boolean isPrefixed(Word word) {
 		return word.getAlphabetic().startsWith(this.getAlphabetic()) &&
 			word.getPhonetic().startsWith(this.getPhonetic());

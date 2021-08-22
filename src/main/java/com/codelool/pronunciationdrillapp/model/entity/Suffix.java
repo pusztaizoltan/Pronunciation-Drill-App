@@ -45,14 +45,6 @@ public class Suffix extends Morpheme {
 		words.removeIf(item -> item.equals(word));
 	}
 
-	@Override
-	public String toString() {
-		return "Suffix{" +
-			"alphabetic='" + alphabetic + '\'' +
-			", phonetic='" + phonetic + '\'' +
-			'}';
-	}
-
 	public boolean isSuffixed(Word word) {
 		return word.getAlphabetic().endsWith(this.getAlphabetic()) &&
 			word.getPhonetic().endsWith(this.getPhonetic());
