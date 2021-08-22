@@ -15,12 +15,12 @@ public class DrillGeneratorController {
 
 	@GetMapping("/prefix/drill")
 	public String generatePrefixDrill() {
-		return drillGeneratorService.generatePrefixDrill(4);
+		return drillGeneratorService.generatePrefixDrill(3);
 	}
 
 	@GetMapping("/suffix/drill")
 	public String generateSuffixDrill() {
-		return drillGeneratorService.generateSuffixDrill(4);
+		return drillGeneratorService.generateSuffixDrill(3);
 	}
 }
 

@@ -1,4 +1,4 @@
-package com.codelool.pronunciationdrillapp.integration;
+package com.codelool.pronunciationdrillapp.integration.dataIO;
 
 import com.codelool.pronunciationdrillapp.model.dto.WordDto;
 import org.junit.jupiter.api.BeforeEach;
