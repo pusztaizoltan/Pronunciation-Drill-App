@@ -17,6 +17,18 @@ Content-Type: application/json
 }
 
 ###
+#------------------------------------
+POST http://localhost:8080/dataio/word/addone
+Accept: application/json
+Content-Type: application/json
+
+{
+  "alphabetic": "12345",
+  "phonetic": "---"
+}
+
+###
+
 DELETE http://localhost:8080/dataio/word/deleteone/1
 Accept: application/json
 Content-Type: application/json
