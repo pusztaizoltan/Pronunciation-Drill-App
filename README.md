@@ -32,22 +32,22 @@ Prefixek és suffixek hozzáadása törlése szavakhoz rendelése egyenként man
         src/test/java/com/codelool/pronunciationdrillapp/requesttests/DrillGeneratorTest.http
 
 - Szó-adatbázis manuális hozzáférése
-        http://localhost:8080/dataio/word/findall<br>
-        http://localhost:8080/dataio/word/findone/{id}<br>
-        http://localhost:8080/dataio/word/addone<br>
-        http://localhost:8080/dataio/word/deleteone/{id}<br>
-        http://localhost:8080/dataio/word/updateone/{id}<br>
-  végpontokon kezelhető.<br>
+        http://localhost:8080/dataio/word/findall
+        http://localhost:8080/dataio/word/findone/{id}
+        http://localhost:8080/dataio/word/addone
+        http://localhost:8080/dataio/word/deleteone/{id}
+        http://localhost:8080/dataio/word/updateone/{id}
+  végpontokon kezelhető.
 
-- Prefix-adatbázis manuális hozzáférése<br>  
-        http://localhost:8080/dataio/prefix/findall<br>
-        http://localhost:8080/dataio/prefix/findone/{id}<br>
-        http://localhost:8080/dataio/prefix/addone<br>
-        http://localhost:8080/dataio/prefix/deleteone/{id}<br>
-        http://localhost:8080/dataio/prefix/{id}/words<br>
-        http://localhost:8080/dataio/prefix/{id}/addword<br>
-        http://localhost:8080/dataio/prefix/{id}/delword<br>
-  végpontokon kezelhető.<br>
+- Prefix-adatbázis manuális hozzáférése  
+        http://localhost:8080/dataio/prefix/findall
+        http://localhost:8080/dataio/prefix/findone/{id}
+        http://localhost:8080/dataio/prefix/addone
+        http://localhost:8080/dataio/prefix/deleteone/{id}
+        http://localhost:8080/dataio/prefix/{id}/words
+        http://localhost:8080/dataio/prefix/{id}/addword
+        http://localhost:8080/dataio/prefix/{id}/delword
+  végpontokon kezelhető.
   
 - Suffix-adatbázis manuális hozzáférése
         http://localhost:8080/dataio/suffix/findall
