@@ -65,5 +65,11 @@ Prefixek és suffixek hozzáadása törlése szavakhoz rendelése egyenként man
         src/test/java/com/codelool/pronunciationdrillapp/requesttests/WordControllerTest.http
   végpontokon kezelhető.
 
-- Docker build és run a start.sh -val indítható. 
+- Docker build és run a start.sh -val indítható.
+
+- Egyéb:
+  IntelliJ -ben nálam ismétlődően előforduló probléma, hogy újra kell jelölni
+  a test/java/resources mappát test-resources -ként, hogy a test a application-test.properties -t használja.
+  Valamint a test runconfig -ban újra és újra meg kell adni a main package-jait,
+  hogy figyelembe vegye azokat az IntelliJ test coverage mérésénél.   
 
